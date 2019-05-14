@@ -1,0 +1,7 @@
+/* Activate Account Button */
+#activate
+{
+    color: var(--sss-gold);
+    background: var(--sss-red);
+    box-shadow: 0px 0px 5px var(--sss-blue);
+}

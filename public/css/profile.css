@@ -1,0 +1,27 @@
+/* Profile Page */
+#profile
+{
+    width: calc(100% - 200px);
+    height: auto;
+    margin: 100px;
+    font-size: 50px;
+}
+    /* Paragraph Content */
+    p
+    {
+        text-align: center;
+    }
+    /* Logout Button */
+    #logout
+    {
+        width: 350px;
+        position: relative;
+        display: block;
+        margin: 100px auto 0 auto;
+        text-align: center;
+        font-size: 25px;
+        color: var(--sss-dark-silver);
+        background: var(--sss-light-silver);
+        padding: 10px;
+        border-radius: 3px;
+    }

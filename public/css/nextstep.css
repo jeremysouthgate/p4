@@ -1,0 +1,26 @@
+/* Confirmation Message */
+#message
+{
+    width: 370px;
+    height: auto;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    padding: 50px;
+    background: var(--sss-light-silver);
+    border-radius: 3px;
+}
+    img
+    {
+        display: block;
+        margin: 0 auto 0 auto;
+        margin-bottom: 25px;
+    }
+    h1
+    {
+        color: var(--sss-dark-silver);
+        margin-bottom: 25px;
+    }
+    p
+    {
+        color: var(--sss-dark-silver);
+    }
