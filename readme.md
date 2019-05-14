@@ -24,7 +24,4 @@ The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!"
 The "Users" table is primary, as a one-to-one with the "User Information" table and one-to-many with "Logins" table.
 
 
-### Third-Party Sources
-+ https://regexr.com/
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
