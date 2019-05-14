@@ -18,7 +18,7 @@
         <!-- Guest Content... -->
         @else
             <p>You are logged out!</p>
-            <a class='button' href='/'>Homepage</a>
+            <a class='button' id='homepage' href='/'>Homepage</a>
         @endif
 
     </div>
