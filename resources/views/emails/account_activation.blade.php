@@ -72,7 +72,7 @@
         <!-- Message Content -->
 
         <!-- Active Link if E-mail and Token are available. -->
-        <a @if(isset($email) && isset($activation_token)) href="http://p4.loc/activate?email={{ $email }}&token={{ $activation_token }}" @endif>Click this link to verify your e-mail and continue to registration Step 2!</a>
+        <a @if(isset($email) && isset($activation_token)) href="http://p4.sss1.me/activate?email={{ $email }}&token={{ $activation_token }}" @endif>Click this link to verify your e-mail and continue to registration Step 2!</a>
 
         <!-- "Close This Window" Prompt -->
         <p>

@@ -69,7 +69,7 @@
         <h1>Password Reset</h1>
 
         <!-- Active Link if E-mail and Token are available. -->
-        <a @if(isset($email) && isset($activation_token)) href="http://p4.loc/newpassword?email={{ $email }}&token={{ $activation_token }}" @endif>Click this link to verify your e-mail and reset your password!</a>
+        <a @if(isset($email) && isset($activation_token)) href="http://p4.sss1.me/newpassword?email={{ $email }}&token={{ $activation_token }}" @endif>Click this link to verify your e-mail and reset your password!</a>
 
     </div>
 
