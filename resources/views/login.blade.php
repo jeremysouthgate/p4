@@ -35,7 +35,7 @@
 
             <!-- E-Mail -->
             <label>E-mail</label>
-            <input type='text' name='email' @if (isset($email)) value="{{ $email }}" @endif @if ($errors->get('email')) value="{{ old('email') }}" style='border: 1px solid red;' @endif/>
+            <input type='text' name='email' @if (isset($email)) value="{{ $email }}" @else value="{{ old('email') }}" @endif @if ($errors->get('email')) style='border: 1px solid red;' @endif/>
             @error('email')
                 <small class='error'> {{ $errors->first('email') }} </small>
             @enderror
