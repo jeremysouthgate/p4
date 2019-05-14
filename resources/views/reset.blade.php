@@ -56,7 +56,11 @@
 
                 <!-- Success Message (if any) -->
                 <p>
-                    {{ $success }}
+                    {!! $success !!}
+                </p>
+                <br />
+                <p>
+                    You may now close this window.
                 </p>
 
             @endif

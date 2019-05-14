@@ -234,14 +234,13 @@ class AuthController extends Controller
 
         // If validation passes, continue...
 
-        // Find the User (Account) by E-mail and Active Status...
+        // Find the User (Account) by E-mail
         $user = User::where([
-            ["email", "=", $request->input('email')],
-            ["activation_status", "=", "active"]
+            ["email", "=", $request->input('email')]
         ])->first();
 
         // If the User Exists...
-        if ($user)
+        if (isset($user) && isset($user->user_information->phone_number))
         {
             // If the provided Phone Number (quasi-password) Matches the E-mail (Account)...
             if ($request->input('phone_number') === $user->user_information->phone_number)
@@ -262,7 +261,7 @@ class AuthController extends Controller
 
                 // ... return a Confirmation Message to the View.
                 return view("reset")->with([
-                    "success" => "An E-mail with a password-reset link been sent to $email."
+                    "success" => "An E-mail with a password-reset link been sent to <b>$email</b>."
                 ]);
             }
         }
