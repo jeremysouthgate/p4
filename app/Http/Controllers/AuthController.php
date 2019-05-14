@@ -200,27 +200,31 @@ class AuthController extends Controller
             "email" => $request->input('email')
         ])->first();
 
-        // If the provided Phone Number (quasi-password) Matches the E-mail (Account)...
-        if ($request->input('phone_number') === $user->user_information->phone_number)
+        // If the User Exists...
+        if ($user)
         {
+            // If the provided Phone Number (quasi-password) Matches the E-mail (Account)...
+            if ($request->input('phone_number') === $user->user_information->phone_number)
+            {
 
-            // Create a New Activation Status Token
-            $new_token = uniqid("", true);
+                // Create a New Activation Status Token
+                $new_token = uniqid("", true);
 
-            // Update the Database with the new Activation Status.
-            $user->activation_status = $new_token;
-            $user->save();
+                // Update the Database with the new Activation Status.
+                $user->activation_status = $new_token;
+                $user->save();
 
-            // Use the provided and confirmed E-Mail...
-            $email = $request->input('email');
+                // Use the provided and confirmed E-Mail...
+                $email = $request->input('email');
 
-            // ...send a Password Reset Email with the new Token.
-            Mail::to($email)->send(new PasswordReset($email, $new_token));
+                // ...send a Password Reset Email with the new Token.
+                Mail::to($email)->send(new PasswordReset($email, $new_token));
 
-            // ... return a Confirmation Message to the View.
-            return view("reset")->with([
-                "success" => "An E-mail with a password-reset link been sent to $email."
-            ]);
+                // ... return a Confirmation Message to the View.
+                return view("reset")->with([
+                    "success" => "An E-mail with a password-reset link been sent to $email."
+                ]);
+            }
         }
 
         // Abent a Credential Match, return an Error Message.
