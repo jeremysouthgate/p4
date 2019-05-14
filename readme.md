@@ -12,9 +12,9 @@ The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!"
 
 
 ## CRUD Operations Summary
-+ Create an Account
-+ Update/Activate Account with User Information, Update Password
-+ Read Information (passim) with respect to verifying account updates; Read credentials to Log In
++ Create an Account.
++ Update/Activate Account with User Information, Update/Reset Password.
++ Read Information (passim) with respect to verifying account updates; Read credentials to Log In.
 
 
 ## Database Summary
