@@ -20,14 +20,11 @@
         margin: 100px auto 0 auto;
         text-align: center;
         font-size: 25px;
+        background: var(--sss-light-silver);
         color: var(--sss-dark-silver);
         padding: 10px;
         border-radius: 3px;
     }
-        #logout
-        {
-            background: var(--sss-light-silver);
-        }
         #homepage
         {
             background: #777777;
