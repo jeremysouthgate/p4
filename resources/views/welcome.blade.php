@@ -13,7 +13,7 @@
         <div id='masthead'>
 
             <!-- Logo Header -->
-            <a href=''><img src='./images/sparkid.png'/></a>
+            <a href=''><img src='./images/sparkid.png' alt='Spark ID Logo'/></a>
 
             <!-- Options -->
             <div id='options'>

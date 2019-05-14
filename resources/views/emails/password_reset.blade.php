@@ -59,7 +59,7 @@
 
     <!-- Logo Letterhead -->
     <div id='header'>
-        <img id='logo' src='http://soundsparkstudios.com/images/sparkid.png'/>
+        <img id='logo' src='http://soundsparkstudios.com/images/sparkid.png' alt='Spark ID Logo'/>
     </div>
 
     <!-- E-Mail Message -->

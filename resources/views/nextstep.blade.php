@@ -13,7 +13,7 @@
         <div id='message'>
 
             <!-- Logo Header -->
-            <a href='/'><img src='./images/sparkid.png'/></a>
+            <a href='/'><img src='./images/sparkid.png' alt='Spark ID Logo'/></a>
 
             <!-- Section Title Header -->
             <h1>Registration, Step 1 of 2 is Complete!</h1>
