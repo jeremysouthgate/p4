@@ -144,7 +144,7 @@ class RouteController extends Controller
         }
 
         // In any event, return to Profile (Without Access)
-        return redirect("profile");
+        return view("profile");
     }
 }
 
