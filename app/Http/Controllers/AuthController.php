@@ -266,7 +266,7 @@ class AuthController extends Controller
             $user->save();
 
             // Redirect to Login Page with Confirmation of Successful Password Change.
-            return view("login")->with([
+            return redirect("login")->with([
                 "success" => "Pasword changed successfully."
             ]);
         }

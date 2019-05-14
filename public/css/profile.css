@@ -11,8 +11,8 @@
     {
         text-align: center;
     }
-    /* Logout Button */
-    #logout
+    /* Button (Logout & Homepage) */
+    .button
     {
         width: 350px;
         position: relative;
