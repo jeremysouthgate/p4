@@ -38,25 +38,29 @@ class AuthController extends Controller
             "activation_status" => "active"
         ])->first();
 
-        // Compare fetched User's Hash with Salted (fetched from DB) Hash of Inputted Pass. If pass...
-        if (Hash::check($user->salt.$request->input('password'), $user->hash))
+        // If the User Exists...
+        if ($user)
         {
+            // Compare fetched User's Hash with Salted (fetched from DB) Hash of Inputted Pass. If pass...
+            if (Hash::check($user->salt.$request->input('password'), $user->hash))
+            {
 
-            // Create a Unique Login Token
-            $authentication_token = uniqid("", true);
+                // Create a Unique Login Token
+                $authentication_token = uniqid("", true);
 
-            // Record new Login Event and Login Token to Database
-            $login = new Login();
-            $login->ip_address = $_SERVER["REMOTE_ADDR"];
-            $login->token = $authentication_token;
-            $login->user_id = $user->id;
-            $login->save();
+                // Record new Login Event and Login Token to Database
+                $login = new Login();
+                $login->ip_address = $_SERVER["REMOTE_ADDR"];
+                $login->token = $authentication_token;
+                $login->user_id = $user->id;
+                $login->save();
 
-            // Set Login Token as Cookie
-            setcookie("authentication_token", $authentication_token, time()+60*60*24);
+                // Set Login Token as Cookie
+                setcookie("authentication_token", $authentication_token, time()+60*60*24);
 
-            // Redirect to Profile Route
-            return redirect("profile");
+                // Redirect to Profile Route
+                return redirect("profile");
+            }
         }
 
         // Absent Password Match, return Login View with Error Messages:
