@@ -13,12 +13,12 @@
         <!-- Authenticated Content... -->
         @if ($authenticated)
             <p>You are logged in!</p>
-            <a class='button' href='/logout'>Log Out</a>
+            <a id='logout' href='/logout'>Log Out</a>
 
         <!-- Guest Content... -->
         @else
             <p>You are logged out!</p>
-            <a class='button' id='homepage' href='/'>Homepage</a>
+            <a id='homepage' href='/'>Homepage</a>
         @endif
 
     </div>
