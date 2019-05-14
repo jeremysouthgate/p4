@@ -8,13 +8,13 @@ A robust authentication system for accessing private user content.
 
 
 ## Usage
-The example e-mail "jes4532@g.harvard.edu" and test password "Password123!" may be used to immediately test login functionality. However, the primary application functionality is the process of creating an account for login.
+The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!" may be used to immediately test login functionality. However, the primary application functionality is the process of creating an account for login.
 
 
 ## CRUD Operations Summary
 + Create an Account
-+ Update Account with User Information, Update Password
-+ Read Information (passim) with respect to verifying account updates
++ Update/Activate Account with User Information, Update Password
++ Read Information (passim) with respect to verifying account updates; Read credentials to Log In
 
 
 ## Database Summary
