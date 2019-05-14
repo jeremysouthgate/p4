@@ -47,9 +47,9 @@
                 <small class='error'> {{ $errors->first('password') }} </small>
             @enderror
 
-            <!-- Failure Message (if any) -->
-            @if (isset($incorrect_password))
-                <small class='error'> {{ $incorrect_password }} </small>
+            <!-- Failed Login Warning (if any) -->
+            @if (isset($failed_login_warning))
+                <small class='error'>{{ $failed_login_warning }}</small>
             @endif
 
             <!-- SUBMIT FORM -->

@@ -14,7 +14,7 @@ use App\Mail\PasswordReset;
 use App\User;
 use App\UserInformation;
 use App\Login;
-
+use App\FailedLogin;
 
 // Route Collection Class
 class AuthController extends Controller
@@ -32,40 +32,79 @@ class AuthController extends Controller
             'password' => "required"
         ]);
 
-        // Fetch User by Email with "active" status...
-        $user = User::where([
-            "email" => $request->input('email'),
-            "activation_status" => "active"
-        ])->first();
 
-        // If the User Exists...
-        if ($user)
+        // Limit IP Login Attempts (7 in 30 min)
+
+        // Set Warning Threshold, Lock-Out Limit, and Time Period (seconds)
+        $failed_login_warning_threshold = 2;
+        $failed_login_limit = 7;
+        $failed_login_period = 60*30;
+
+        // Count Failed Login Attempts for Time Period from Database
+        $failed_login_count = FailedLogin::where([
+            ["ip_address", "=", $_SERVER['REMOTE_ADDR']],
+            ["created_at", ">", date("Y-m-d H:i:s", time()-$failed_login_period)]
+        ])->orderBy('created_at')->count();
+
+
+        // If Failed Login Limit is not exceeded...
+        if (!($failed_login_count === $failed_login_limit))
         {
-            // Compare fetched User's Hash with Salted (fetched from DB) Hash of Inputted Pass. If pass...
-            if (Hash::check($user->salt.$request->input('password'), $user->hash))
+            // Fetch User by Email with "active" status...
+            $user = User::where([
+                ["email", "=", $request->input('email')],
+                ["activation_status", "=", "active"]
+            ])->first();
+
+            // If the User Exists...
+            if ($user)
             {
+                // Compare fetched User's Hash with Salted (fetched from DB) Hash of Inputted Pass. If pass...
+                if (Hash::check($user->salt.$request->input('password'), $user->hash))
+                {
 
-                // Create a Unique Login Token
-                $authentication_token = uniqid("", true);
+                    // Create a Unique Login Token
+                    $authentication_token = uniqid("", true);
 
-                // Record new Login Event and Login Token to Database
-                $login = new Login();
-                $login->ip_address = $_SERVER["REMOTE_ADDR"];
-                $login->token = $authentication_token;
-                $login->user_id = $user->id;
-                $login->save();
+                    // Record new Login Event and Login Token to Database
+                    $login = new Login();
+                    $login->ip_address = $_SERVER["REMOTE_ADDR"];
+                    $login->token = $authentication_token;
+                    $login->user_id = $user->id;
+                    $login->save();
 
-                // Set Login Token as Cookie
-                setcookie("authentication_token", $authentication_token, time()+60*60*24);
+                    // Set Login Token as Cookie
+                    setcookie("authentication_token", $authentication_token, time()+60*60*24);
 
-                // Redirect to Profile Route
-                return redirect("profile");
+                    // Redirect to Profile Route
+                    return redirect("profile");
+                }
+                // If Password Authentication Fails, log the failed login attempt:
+                else
+                {
+                    $failed_login = new FailedLogin();
+                    $failed_login->ip_address = $_SERVER['REMOTE_ADDR'];
+                    $failed_login->save();
+                }
             }
         }
 
-        // Absent Password Match, return Login View with Error Messages:
+
+        // Absent Password Match, return Login View with Error Warnings:
+        if ($failed_login_count >= $failed_login_warning_threshold && $failed_login_count < $failed_login_limit)
+        {
+            $response = "Incorrect password. Warning: ".($failed_login_limit - $failed_login_count)." attempts remaining.";
+        }
+        else if ($failed_login_count === $failed_login_limit)
+        {
+            $response = "Too many attempts. Wait a few minutes to try again.";
+        }
+        else
+        {
+            $response = "Incorrect password.";
+        }
         return view("login")->with([
-            "incorrect_password" => "Incorrect password.",
+            "failed_login_warning" => $response,
             "email" => $request->input('email')
         ]);
     }
