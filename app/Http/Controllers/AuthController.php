@@ -173,7 +173,7 @@ class AuthController extends Controller
         $user_information->save();
 
         // Redirect to Login Page with a Successful Activation Message.
-        return redirect("login")->with([
+        return view("login")->with([
             "success" => "Account activated successfully!"
         ]);
     }
