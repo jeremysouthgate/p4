@@ -13,6 +13,9 @@
         <!-- FORM -->
         <form method="POST" action='' enctype="multipart/form-data">
 
+            <!-- CSRF Token -->
+            @csrf
+
             <!-- Logo Header -->
             <a href='/'><img src='./images/sparkid.png'/></a>
 
