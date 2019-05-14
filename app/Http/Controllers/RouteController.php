@@ -135,11 +135,15 @@ class RouteController extends Controller
     // Logout (Update)
     public function logout()
     {
-        // Expire and Unset (Delete) Authentication Cookie
-        setcookie("authentication_token", $_COOKIE['authentication_token'], time()-1);
-        unset($_COOKIE['authentication_token']);
+        // If Session Cookie Exists...
+        if ($_COOKIE['authentication_token'])
+        {
+            // Expire and Unset (Delete) Authentication Cookie
+            setcookie("authentication_token", $_COOKIE['authentication_token'], time()-1);
+            unset($_COOKIE['authentication_token']);
+        }
 
-        // Return to Profile (Without Access)
+        // In any event, return to Profile (Without Access)
         return redirect("profile");
     }
 }
