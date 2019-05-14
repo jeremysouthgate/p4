@@ -10,7 +10,7 @@
     <div class='center_field'>
 
         <!-- FORM -->
-        <form method="POST" action=''>
+        <form method="POST" action='/reset'>
 
             <!-- CSRF Token -->
             @csrf
