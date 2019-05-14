@@ -144,7 +144,7 @@ class RouteController extends Controller
         }
 
         // In any event, return to Profile (Without Access)
-        return view("profile");
+        return view("profile")->with("authenticated", false);
     }
 }
 
