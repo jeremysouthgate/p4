@@ -136,7 +136,7 @@ class RouteController extends Controller
     public function logout()
     {
         // If Session Cookie Exists...
-        if ($_COOKIE['authentication_token'])
+        if (isset($_COOKIE['authentication_token']))
         {
             // Expire and Unset (Delete) Authentication Cookie
             setcookie("authentication_token", $_COOKIE['authentication_token'], time()-1);
