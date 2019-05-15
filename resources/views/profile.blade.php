@@ -12,7 +12,22 @@
 
         <!-- Authenticated Content... -->
         @if ($authenticated)
-            <p>You are logged in!</p>
+
+            <!-- Welcome Message -->
+            <p>Hello, {{ $first_name }}, you are logged in!</p>
+
+            <br />
+
+            <!-- Profile Information -->
+            <div id='information'>
+                <p>Here is your private information:</p>
+                <br />
+                <p>Name: {{ $first_name }} {{ $last_name }}</p>
+                <p>Email: {{ $email }}</p>
+                <p>Phone: {{ $phone_number }}</p>
+            </div>
+
+            <!-- Logout Button -->
             <a id='logout' href='/logout'>Log Out</a>
 
         <!-- Guest Content... -->

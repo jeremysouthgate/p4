@@ -183,7 +183,6 @@ class AuthController extends Controller
 
         // Validate Form Input
         $request->validate([
-            "portrait" => "required|mimes:jpeg|dimensions:350,350",
             "first_name" => "required|alpha_dash",
             "last_name" => "required|alpha_dash",
             "gender" => "required",
@@ -206,7 +205,6 @@ class AuthController extends Controller
 
         // Insert newly provided (Required) User Information into Database.
         $user_information = new UserInformation();
-        $user_information->portrait = $request->file("portrait")->store("portraits");
         $user_information->first_name = ucfirst(strtolower($request->input("first_name")));
         $user_information->last_name = ucfirst(strtolower($request->input("last_name")));
         $user_information->gender = substr($request->input("gender"), 0, 1);

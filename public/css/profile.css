@@ -11,6 +11,13 @@
     {
         text-align: center;
     }
+
+    /* User Information */
+    #information
+    {
+        font-size: .5em;
+    }
+
     /* Button (Logout & Homepage) */
     #logout, #homepage
     {

@@ -22,9 +22,9 @@ class UserInformationTableSeeder extends Seeder
 
         // Test User: Jill
         $user_information = new UserInformation();
-        $user_information->first_name = "Jeremy";
-        $user_information->last_name = "Southgate";
-        $user_information->gender = "M";
+        $user_information->first_name = "Jill";
+        $user_information->last_name = "Harvard";
+        $user_information->gender = "F";
         $user_information->date_of_birth = "1988-01-01";
         $user_information->phone_number = "6170000000";
         $user_information->user_id = 2;
@@ -32,8 +32,8 @@ class UserInformationTableSeeder extends Seeder
 
         // Test User: Jamal
         $user_information = new UserInformation();
-        $user_information->first_name = "Jeremy";
-        $user_information->last_name = "Southgate";
+        $user_information->first_name = "Jamal";
+        $user_information->last_name = "Harvard";
         $user_information->gender = "M";
         $user_information->date_of_birth = "1987-01-01";
         $user_information->phone_number = "6170000000";

@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\UserInformation;
 use App\Login;
 use Illuminate\Support\Facades\Auth;
 
@@ -114,8 +115,18 @@ class RouteController extends Controller
             // If Latest Login from IP matches Client Session Login Token...
             if ($login->token === $_COOKIE['authentication_token'])
             {
+
+                // Get some Private User info
+                $user = User::where("id", $login->user_id)->first();
+
                 // Return Profile with Access.
-                return view("profile")->with("authenticated", true);
+                return view("profile")->with([
+                    "authenticated" => true,
+                    "first_name" => $user->user_information->first_name,
+                    "last_name" => $user->user_information->last_name,
+                    "email" => $user->email,
+                    "phone_number" => $user->user_information->phone_number
+                ]);
             }
         }
 
