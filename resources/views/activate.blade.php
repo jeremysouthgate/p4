@@ -37,13 +37,6 @@
             <!-- Spacer -->
             <div class='spacer25'></div>
 
-            <!-- Portrait -->
-            <label>Portrait JPG (350 x 350px)</label>
-            <input type='file' name='portrait' value="{{ old('portrait') }}" @if ($errors->get('portrait')) style='border: 1px solid red;' @endif/>
-            @error('portrait')
-                <small class='error'> {{ $errors->first('portrait') }} </small>
-            @enderror
-
             <!-- First Name -->
             <label>First Name</label>
             <input type='text' name='first_name' value="{{ old('first_name') }}" @if ($errors->get('first_name')) style='border: 1px solid red;' @endif/>
