@@ -1,9 +1,10 @@
 <!doctype html>
 <!--
 
+    SPARK ID™
     An AUTHORIZED LOGIN Program
     By: Jeremy C. Southgate (jes4532@g.harvard.edu)
-    Copyright © Jeremy C. Southgate. All rights reserved.
+    Copyright © ™ Jeremy C. Southgate. All rights reserved.
 
     In fulfillment of: HES CSCI E-15 Dynamic Web Applications, Project 4.
     And in partial fulfillment of: the degree of Bachelor of Liberal Arts
