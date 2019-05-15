@@ -11,13 +11,19 @@ A robust authentication system for accessing private user content.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ### Usage
-The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!" may be used to immediately test login functionality. However, the primary application functionality is the process of creating an account for login.
+The primary application functionality is the process of creating an account for login.
+
+The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!" may be used to immediately test login functionality in addition to jill@harvard.edu w/ "helloworld" and jamal@harvard.edu w/ "helloworld".
+
+#### Special Features
++ A Login-attempt Limiter (7 attempts per the last 30 minutes)
++ Password Reset (acess via the "login" screen)
 
 
 ### CRUD Operations Summary
 + Create a User/Account.
 + Update/Activate Account with User Information, Update/Reset Password.
-+ Read Information (passim) with respect to verifying account updates; Read credentials to Log In.
++ Read Information (passim) with respect to verifying account updates; Read credentials to Log In and display a basic profile.
 
 
 ### Database Summary
