@@ -26,7 +26,7 @@ class UserInformationTableSeeder extends Seeder
         $user_information->last_name = "Harvard";
         $user_information->gender = "F";
         $user_information->date_of_birth = "1988-01-01";
-        $user_information->phone_number = "6170000000";
+        $user_information->phone_number = "6171234567";
         $user_information->user_id = 2;
         $user_information->save();
 
