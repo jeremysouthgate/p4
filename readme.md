@@ -13,7 +13,7 @@ A robust authentication system for accessing private user content.
 ### Usage
 The primary application functionality is the process of creating an account for login.
 
-The seed example e-mail "jes4532@g.harvard.edu" and test password "Password123!" may be used to immediately test login functionality in addition to jill@harvard.edu w/ "helloworld" and jamal@harvard.edu w/ "helloworld".
+The seed example e-mails jill@harvard.edu w/ password "helloworld" and jamal@harvard.edu w/ password "helloworld" may be used to immediately test login functionality.
 
 #### Special Features
 + A Login-attempt Limiter (7 attempts per the last 30 minutes)

@@ -11,15 +11,6 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        // Test User: Jeremy
-        $salt = uniqid();
-        $user = new User();
-        $user->email = "jes4532@g.harvard.edu";
-        $user->salt = $salt;
-        $user->hash = Hash::make($salt."Password123!");
-        $user->activation_status = "active";
-        $user->save();
-
         // Test User: Jill
         $salt = uniqid();
         $user = new User();
