@@ -1,8 +1,11 @@
 <!doctype html>
 <!--
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
     SPARK ID™
-    An AUTHORIZED LOGIN Program
+
+    An AUTHORIZED LOGIN Program.
     By: Jeremy C. Southgate (jes4532@g.harvard.edu)
     Copyright © ™ Jeremy C. Southgate. All rights reserved.
 
@@ -10,6 +13,10 @@
     And in partial fulfillment of: the degree of Bachelor of Liberal Arts
     in Extension Studies, Harvard University.
 
+    May 15, 2019.
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 -->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
