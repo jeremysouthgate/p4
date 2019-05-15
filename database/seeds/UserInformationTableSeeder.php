@@ -17,7 +17,7 @@ class UserInformationTableSeeder extends Seeder
         $user_information->gender = "F";
         $user_information->date_of_birth = "1988-01-01";
         $user_information->phone_number = "6171234567";
-        $user_information->user_id = 2;
+        $user_information->user_id = 1;
         $user_information->save();
 
         // Test User: Jamal
@@ -27,7 +27,7 @@ class UserInformationTableSeeder extends Seeder
         $user_information->gender = "M";
         $user_information->date_of_birth = "1987-01-01";
         $user_information->phone_number = "6170000000";
-        $user_information->user_id = 3;
+        $user_information->user_id = 2;
         $user_information->save();
     }
 }
